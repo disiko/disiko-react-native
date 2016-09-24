@@ -7,7 +7,7 @@ const optionIcon = require('./../img/ic_view_headline_white_48dp.png')
 class MainToolbar extends Component {
     render() {
       return (
-        <View style={Style.MainToolbar.containerToolbar} >
+        <View>
           <ToolbarAndroid
             style={Style.MainToolbar.toolbar}
             title="Disiko"

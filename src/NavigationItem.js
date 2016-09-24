@@ -1,14 +1,16 @@
 import React, { Component, PropTypes } from 'react';
-import { TouchableOpacity, Text } from 'react-native';
+import { TouchableOpacity, Text, View } from 'react-native';
 import Style from './Style';
 
 class NavigationItem extends Component {
   render () {
     return (
       <TouchableOpacity onPress={(e) => this.props.onPress(e)}>
-        <Text style={Style.NavigationItem.title}>
-          {this.props.title}
-        </Text>
+        <View style={Style.NavigationItem.container}>
+          <Text style={Style.NavigationItem.title}>
+            {this.props.title}
+          </Text>
+        </View>
       </TouchableOpacity>
     );
   }

@@ -17,7 +17,7 @@ class disiko extends Component {
 
   componentDidMount() {
     const targetComponent = <MainDrawer />;
-    setTimeout(() => this.setState({ targetComponent }), 2e3);
+    setTimeout(() => this.setState({ targetComponent }), 500);
   }
 
   render() {

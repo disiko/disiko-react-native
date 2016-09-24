@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import { DrawerLayoutAndroid, StyleSheet, View, Text } from 'react-native';
+import { DrawerLayoutAndroid, StyleSheet, View, Text, TouchableOpacity } from 'react-native';
 import MainToolbar from './MainToolbar';
-import Color from './Color';
+import Style from './Style';
 import NavigationItem from './NavigationItem';
 import ItemList from './ItemList';
 import config from './../config/default';
@@ -45,7 +45,14 @@ class MainDrawer extends Component {
 
   render() {
     const navigationView = (
-      <View style={{flex: 1, backgroundColor: '#fff'}}>
+      <View style={Style.MainDrawer.drawer}>
+        <TouchableOpacity onPress={() => this.refs.DRAWER.closeDrawer()}>
+          <View style={Style.NavigationItem.headerContainer}>
+            <Text style={Style.NavigationItem.header}>
+              Back to Main
+            </Text>
+          </View>
+        </TouchableOpacity>
         <NavigationItem
           title="Featured"
           onPress={() => {}}
@@ -54,19 +61,31 @@ class MainDrawer extends Component {
           title="Nearest"
           onPress={() => {}}
         />
+        <NavigationItem
+          title="Whist list"
+          onPress={() => {}}
+        />
+        <NavigationItem
+          title="Setting"
+          onPress={() => {}}
+        />
+        <NavigationItem
+          title="Exit"
+          onPress={() => {}}
+        />
       </View>
     );
     return (
       <DrawerLayoutAndroid
-        drawerWidth={200}
+        drawerWidth={250}
         drawerPosition={DrawerLayoutAndroid.positions.Left}
         renderNavigationView={() => navigationView}
         ref="DRAWER"
       >
-        <View>
-          <MainToolbar
-            onActionSelected={this.onToolBarActionSelected.bind(this)}
-          />
+        <MainToolbar
+        onActionSelected={this.onToolBarActionSelected.bind(this)}
+        />
+        <View style={Style.MainDrawer.viewContainer}>
           <ItemList
             data={this.state.featured}
             onPress={this.onItemListPress.bind(this)}
