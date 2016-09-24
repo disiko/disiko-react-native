@@ -63,7 +63,7 @@ const Style = {
       padding: 12,
       flexDirection: 'row',
       alignItems: 'center',
-      marginBottom: 2,
+      marginBottom: 3,
       backgroundColor: Color['White']['500'],
     },
     photo: {
