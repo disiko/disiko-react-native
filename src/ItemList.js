@@ -1,6 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import { TouchableOpacity, Image, View, Text, ListView } from 'react-native';
 import Style from './Style';
+import utils from './utils';
 
 const tokopediaIcon = require('./../img/tokopedia.png');
 const lazadaIcon = require('./../img/lazada.png');
@@ -31,6 +32,8 @@ class ItemList extends Component {
   getFormattedRow(item) {
     const dummyImg = require('./../img/1.jpg');
     const sourceIcon = this.getSourceIcon(item.source);
+    const price = utils.formatPrice(item.price);
+
     return (
       <TouchableOpacity onPress={() => this.props.onPress(item)}>
         <View style={Style.ItemList.rowContainer}>
@@ -41,7 +44,7 @@ class ItemList extends Component {
           <Text style={Style.ItemList.name}>
             {item.name}{"\n"}
             <Text style={Style.ItemList.price}>
-              Rp. {item.price}{"\n"}{"\n"}
+              {price}{"\n"}{"\n"}
             </Text>
             <Image
             source={sourceIcon}

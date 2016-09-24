@@ -2,7 +2,8 @@ import React, { Component, PropTypes } from 'react';
 import { ToolbarAndroid, View } from 'react-native';
 import Style from './Style';
 
-const optionIcon = require('./../img/ic_view_headline_white_48dp.png')
+const optionIcon = require('./../img/ic_view_headline_white_48dp.png');
+const logo = require('./../img/logo.png')
 
 class MainToolbar extends Component {
     render() {
@@ -10,7 +11,7 @@ class MainToolbar extends Component {
         <View>
           <ToolbarAndroid
             style={Style.MainToolbar.toolbar}
-            title="Disiko"
+            logo={logo}
             actions={[
               {
                 title: 'Options',

@@ -8,6 +8,7 @@ import React, { Component } from 'react';
 import { AppRegistry } from 'react-native';
 import MainDrawer from './src/MainDrawer';
 import SplashScreen from './src/SplashScreen';
+import config from './config/default';
 
 class disiko extends Component {
   constructor(props) {
@@ -17,7 +18,8 @@ class disiko extends Component {
 
   componentDidMount() {
     const targetComponent = <MainDrawer />;
-    setTimeout(() => this.setState({ targetComponent }), 500);
+    const loadingTime = config.splashLoading;
+    setTimeout(() => this.setState({ targetComponent }), loadingTime);
   }
 
   render() {

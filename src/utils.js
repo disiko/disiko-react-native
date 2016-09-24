@@ -26,6 +26,9 @@ const utils = {
         .then(resolve)
         .catch(reject);
     });
+  },
+  formatPrice(ammount) {
+    return 'Rp. ' + ammount;
   }
 };
 
