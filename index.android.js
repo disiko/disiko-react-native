@@ -5,41 +5,24 @@
  */
 
 import React, { Component } from 'react';
-import {
-  AppRegistry,
-  StyleSheet,
-  Text,
-  View,
-  ToolbarAndroid
-} from 'react-native';
-import MainToolbar from './src/MainToolbar';
+import { AppRegistry } from 'react-native';
 import MainDrawer from './src/MainDrawer';
+import SplashScreen from './src/SplashScreen';
 
 class disiko extends Component {
+  constructor(props) {
+    super(props);
+    this.state = { targetComponent: <SplashScreen/> };
+  }
+
+  componentDidMount() {
+    const targetComponent = <MainDrawer />;
+    setTimeout(() => this.setState({ targetComponent }), 2e3);
+  }
+
   render() {
-    return (
-      <MainDrawer />
-    );
+    return this.state.targetComponent;
   }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
-  },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-  },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
-  },
-});
 
 AppRegistry.registerComponent('disiko', () => disiko);
