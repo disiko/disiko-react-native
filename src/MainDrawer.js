@@ -94,6 +94,7 @@ class MainDrawer extends Component {
       >
         <MainToolbar
           onActionSelected={this.props.onShowDrawerClick}
+          onIconClicked={this.props.onShowDrawerClick}
         />
         <View style={Style.MainDrawer.viewContainer}>
           <ItemList
