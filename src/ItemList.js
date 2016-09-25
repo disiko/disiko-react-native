@@ -53,6 +53,16 @@ class ItemList extends Component {
   }
 
   render() {
+    if (!this.props.data) {
+      return (
+        <View style={Style.ItemList.noDataContainer}>
+          <Text style={Style.ItemList.noData}>
+            No Data
+          </Text>
+        </View>
+      );
+    }
+
     const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
     const dataSource = ds.cloneWithRows(this.props.data);
     return (

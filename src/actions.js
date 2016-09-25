@@ -20,6 +20,7 @@ export const fetchFeatured = () => {
       }
       dispatch(receiveFeatured(data));
     }).catch((err) => {
+      dispatch(receiveFeatured([]));
       console.log(err);
     });
   }
@@ -39,6 +40,7 @@ export const fetchNearest = () => {
       }
       dispatch(receiveNearest(data));
     }).catch((err) => {
+      dispatch(receiveFeatured([]));
       console.log(err);
     });
   }

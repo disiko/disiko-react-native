@@ -85,6 +85,15 @@ const Style = {
       height: 25,
       width: 75,
       right: 10,
+    },
+    noDataContainer: {
+      flex: 1,
+    },
+    noData: {
+      flex: 1,
+      fontSize: 20,
+      textAlign: 'center',
+      textAlignVertical: 'center',
     }
   }),
 };

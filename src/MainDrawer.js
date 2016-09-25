@@ -12,16 +12,18 @@ import utils from './utils';
 const mapStateToProps = ({ showingDrawer, itemList }) => ({ showingDrawer, itemList});
 const mapDispatchToProps = (dispatch) => ({
   onHideDraweClick() {
-    dispatch(hideDrawer())
+    dispatch(hideDrawer());
   },
   onShowDrawerClick() {
-    dispatch(showDrawer())
+    dispatch(showDrawer());
   },
   onFeaturedPress() {
     dispatch(fetchFeatured());
+    dispatch(hideDrawer());
   },
   onNearestPress() {
     dispatch(fetchNearest());
+    dispatch(hideDrawer());
   },
   onExitPress() {
     dispatch(showSplashScreen());
