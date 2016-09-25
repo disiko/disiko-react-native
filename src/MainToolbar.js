@@ -2,7 +2,8 @@ import React, { Component, PropTypes } from 'react';
 import { ToolbarAndroid, View } from 'react-native';
 import Style from './Style';
 
-const optionIcon = require('./../img/ic_view_headline_white_48dp.png');
+const optionIcon = require('./../img/ic_more_vert_white_24dp.png');
+const navIcon = require('./../img/ic_dehaze_white_24dp.png');
 const logo = require('./../img/logo.png')
 
 class MainToolbar extends Component {
@@ -12,6 +13,8 @@ class MainToolbar extends Component {
           <ToolbarAndroid
             style={Style.MainToolbar.toolbar}
             logo={logo}
+            navIcon={navIcon}
+            onIconClicked={this.props.onIconClicked}
             actions={[
               {
                 title: 'Options',
@@ -19,7 +22,7 @@ class MainToolbar extends Component {
                 show: 'always'
               }
             ]}
-            onActionSelected={(i) => this.props.onActionSelected(i)}
+            onActionSelected={this.props.onActionSelected}
           />
         </View>
       );
@@ -28,9 +31,11 @@ class MainToolbar extends Component {
 
 MainToolbar.propTypes = {
   onActionSelected: PropTypes.func,
+  onIconClicked: PropTypes.func,
 };
 MainToolbar.defaultProps = {
   onActionSelected: () => {},
+  onIconClicked: () => {},
 }
 
 export default MainToolbar;
