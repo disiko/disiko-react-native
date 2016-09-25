@@ -10,10 +10,6 @@ const blibliIcon = require('./../img/blibli.png');
 const defaultIcon = require('./../img/default.png');
 
 class ItemList extends Component {
-  constructor(props) {
-    super(props);
-  }
-
   getSourceIcon(s) {
     switch (s) {
       case 'lazada':

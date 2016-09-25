@@ -1,30 +1,25 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- * @flow
- */
-
 import React, { Component } from 'react';
 import { AppRegistry } from 'react-native';
-import MainDrawer from './src/MainDrawer';
-import SplashScreen from './src/SplashScreen';
-import config from './config/default';
+import { createStore, combineReducers, applyMiddleware } from 'redux';
+import { Provider } from 'react-redux';
+import thunkMiddleware from 'redux-thunk';
+import * as reducers from './src/reducers';
+import App from './src/App';
+import { fetchFeatured } from './src/actions';
 
+const store = createStore(combineReducers(reducers), applyMiddleware(thunkMiddleware));
 class disiko extends Component {
-  constructor(props) {
-    super(props);
-    this.state = { targetComponent: <SplashScreen/> };
-  }
-
-  componentDidMount() {
-    const targetComponent = <MainDrawer />;
-    const loadingTime = config.splashLoading;
-    setTimeout(() => this.setState({ targetComponent }), loadingTime);
-  }
-
   render() {
-    return this.state.targetComponent;
+    return (
+      <Provider store={store}>
+        <App />
+      </Provider>
+    );
   }
 }
+// Get initial data
+(function() {
+  store.dispatch(fetchFeatured());
+})();
 
 AppRegistry.registerComponent('disiko', () => disiko);
